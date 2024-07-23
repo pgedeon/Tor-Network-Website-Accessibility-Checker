@@ -4,6 +4,47 @@ The Tor Network Website Accessibility Checker is a Python-based script designed 
 # Google Colab Link
 https://colab.research.google.com/drive/1kueqAO7kf1zz6sr8dTUUsC8zuHocV9KF?usp=sharing
 
+# Basic Usage Guide for Tor Exit Node Testing Script
+Introduction
+This script checks the accessibility of two websites, google.com and hanseyachts.com, from various countries using Tor exit nodes. If google.com is not accessible, it retries with a new endpoint from the same country. It also handles timeout errors by retrying with a new endpoint.
+
+Requirements
+Google Colab or Local Environment: The script can be run on Google Colab or a local machine.
+Ngrok API Key: Required to expose the Tor control port via Ngrok for remote access.
+Installation and Setup
+Install Necessary Packages:
+
+Tor
+Stem (Python library for interacting with Tor)
+Requests (for making HTTP requests)
+Pyngrok (for creating secure tunnels to localhost)
+Ngrok API Key:
+
+Sign up for an Ngrok account at ngrok.com.
+Obtain your API key from the Ngrok dashboard.
+Use the API key to authenticate Ngrok in the script.
+Script Settings
+Ngrok API Key: Replace the placeholder with your actual Ngrok API key.
+
+python
+Copy code
+ngrok_authtoken = "YOUR_NGROK_API_KEY"
+Tor Hashed Password: Set your desired password for Tor authentication.
+
+python
+Copy code
+password = 'my_password'
+List of Country Codes: Modify the list to include the country codes you want to test.
+
+python
+Copy code
+country_codes = ['US', 'CA', 'DE', 'FR', 'NL', 'GB', 'AU', 'JP', 'KR', 'RU', 'IN', 'BR', 'ES', 'IT', 'CH', 'SE', 'FI', 'NO', 'DK', 'BE', 'AT', 'PL', 'CZ', 'RO', 'UA', 'HU', 'GR', 'BG', 'TR', 'IL', 'ZA', 'SG', 'HK', 'MY', 'ID', 'PH', 'VN', 'TH']
+Max Retries Per Country: Set the maximum number of retries per country if google.com is not accessible or a timeout error occurs.
+
+python
+Copy code
+max_retries_per_country = 3
+
 # License
 Creative Commons Attribution-NonCommercial 4.0 International Public License
 
